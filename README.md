@@ -1,3 +1,11 @@
+# Описание
+Учебный проект по redux - 
+* увеличение суммы
+* уменьшение суммы
+* добавление клиента
+* добавление клиентов из базы пачкой
+* удаление клиента по щелчку
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
