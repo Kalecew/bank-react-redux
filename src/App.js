@@ -29,22 +29,35 @@ function App() {
     dispatch(fetchCustomers())
   }
   return (
-    <div>
-      <h1>Баланс: {cash}</h1>
-      <button onClick={() => addCash(Number(prompt()))}>Пополнить счёт</button>
-      <button onClick={() => getCash(Number(prompt()))}>Снять со счёта</button>
-      <button onClick={() => addCustomer(prompt())}>Добавить клиента</button>
-      <button onClick={() => addManyCustomers()}>Получить клиентов из базы</button>
-    
-      {customers.length > 0 ?
-        <div>
-          {customers.map(customer => 
-            <div key={customer.id} onClick={() => removeCustomer(customer.id)}>{customer.name}</div>
-          )}
+    <div className="container">
+      <h1 className="h1">Личный кабинет</h1>
+      <div className="content">
+        <div className="cash block">
+          <div className="block__inner">
+            <h2 className="cash__h2 h2">Баланс на счёте</h2>
+            <div className="cash__value">{cash} ₽</div>
+            <button className="cash__action btn" onClick={() => addCash(Number(prompt()))}>Пополнить счёт</button>
+            <button className="cash__action btn" onClick={() => getCash(Number(prompt()))}>Снять со счёта</button>
+          </div>          
         </div>
-        :
-        <div>Клиенты отсутствуют!</div>
-      }   
+        <div className="customers block">
+          <h2 className="customers__h2 h2">Клиенты</h2>
+          <div className="block__inner">
+            <button className="customers__action btn" onClick={() => addCustomer(prompt())}>Добавить клиента</button>
+            <button className="customers__action btn" onClick={() => addManyCustomers()}>Получить клиентов из базы</button>
+            {customers.length > 0 ?
+              <ul className="customers__list">
+                {customers.map(customer => 
+                  <li className="customers__item" key={customer.id} onClick={() => removeCustomer(customer.id)}>{customer.name}</li>
+                )}
+              </ul>
+              :
+              <div className="customers__warning">Клиенты отсутствуют!</div>
+            }   
+          </div>
+        </div>
+      </div>
+      
     </div> 
   )
 }
