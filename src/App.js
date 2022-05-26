@@ -3,6 +3,7 @@ import './App.css'
 import {useDispatch, useSelector} from 'react-redux'
 import {addCashAction, getCashAction} from './store/cashReducer'
 import {addCustomerAction, removeCustomerAction} from './store/customerReducer'
+import {fetchCustomers} from './asincActions/customers'
 
 function App() {
   const dispatch = useDispatch()
@@ -24,12 +25,16 @@ function App() {
   const removeCustomer = (id) => {
     dispatch(removeCustomerAction(id))
   }
+  const addManyCustomers = () => {
+    dispatch(fetchCustomers())
+  }
   return (
     <div>
       <h1>Баланс: {cash}</h1>
       <button onClick={() => addCash(Number(prompt()))}>Пополнить счёт</button>
       <button onClick={() => getCash(Number(prompt()))}>Снять со счёта</button>
       <button onClick={() => addCustomer(prompt())}>Добавить клиента</button>
+      <button onClick={() => addManyCustomers()}>Получить клиентов из базы</button>
     
       {customers.length > 0 ?
         <div>
