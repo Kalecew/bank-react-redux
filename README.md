@@ -1,3 +1,6 @@
+# DEMO
+https://kalecew.github.io/bank-react-redux/
+
 # Описание
 Учебный проект по redux
 * увеличение суммы
